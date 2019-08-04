@@ -78,46 +78,46 @@ class TestPetShop < Minitest::Test
     }
   end
 
-#Task 1
+#Task 1 - passes
   def test_pet_shop_name
     name = pet_shop_name(@pet_shop)
     assert_equal("Camelot of Pets", name)
   end
 
-#Task 2
+#Task 2 - passes
   def test_total_cash
     sum = total_cash(@pet_shop)
     assert_equal(1000, sum)
   end
 
-#Task 3
+#Task 3 - passes
   def test_add_or_remove_cash__add
     add_or_remove_cash(@pet_shop,10)
     cash = total_cash(@pet_shop)
     assert_equal(1010, cash)
   end
 
-#Task 4 - same implementation code as for task 3
+#Task 4 - passes (same implementation code as for task 3)
   def test_add_or_remove_cash__remove
     add_or_remove_cash(@pet_shop,-10)
     cash = total_cash(@pet_shop)
     assert_equal(990, cash)
   end
 
-#Task 5
+#Task 5 - passes
   def test_pets_sold
     sold = pets_sold(@pet_shop)
     assert_equal(0, sold)
   end
 
-#Task 6
+#Task 6 - passes
   def test_increase_pets_sold
     increase_pets_sold(@pet_shop,2)
     sold = pets_sold(@pet_shop)
     assert_equal(2, sold)
   end
 
-#Task 7
+#Task 7 - passes
   def test_stock_count
     count = stock_count(@pet_shop)
     assert_equal(6, count)
@@ -136,10 +136,10 @@ class TestPetShop < Minitest::Test
   # end
 
 #Task 10 - NOT WORKING. IT HAS TO DO WITH USE OF SQUARE BRACKETS ON LINE 141
-  # def test_find_pet_by_name__returns_pet
-  #   pet = find_pet_by_name(@pet_shop, "Arthur")
-  #   assert_equal("Arthur", pet[:name])
-  # end
+  def test_find_pet_by_name__returns_pet
+    pet = find_pet_by_name(@pet_shop, "Arthur")
+    assert_equal("Arthur", pet[:name])
+  end
 
 #Task 11 - SAME AS FOR TASK 10, BUT THIS ONE PASSES!!!
   def test_find_pet_by_name__returns_nil
@@ -168,25 +168,25 @@ class TestPetShop < Minitest::Test
     assert_equal(1000, cash)
   end
 
-#Task 15 - not working.
+#Task 15 - passes
   def test_remove_customer_cash
     customer = @customers[0]
     remove_customer_cash(customer, 100)
     assert_equal(900, customer[:cash])
   end
 
-#Task 16
-  # def test_customer_pet_count
-  #   count = customer_pet_count(@customers[0])
-  #   assert_equal(0, count)
-  # end
+#Task 16 - passes
+  def test_customer_pet_count
+    count = customer_pet_count(@customers[0])
+    assert_equal(0, count)
+  end
 
-#Task 17
-  # def test_add_pet_to_customer
-  #   customer = @customers[0]
-  #   add_pet_to_customer(customer, @new_pet)
-  #   assert_equal(1, customer_pet_count(customer))
-  # end
+#Task 17 - passes, and works in the implementation
+  def test_add_pet_to_customer
+    customer = @customers[0]
+    add_pet_to_customer(customer, @new_pet)
+    assert_equal(1, customer_pet_count(customer))
+  end
 
   # --- OPTIONAL ---
 #Optional task 1

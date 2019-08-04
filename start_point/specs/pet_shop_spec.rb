@@ -123,46 +123,46 @@ class TestPetShop < Minitest::Test
     assert_equal(6, count)
   end
 
-#Task 8 - IT'S FAILING, BUT I CANNOT SEE WHY. THE IMPLEMENTATION DOES WHAT I THINK IT'S SUPPOSED TO.
-  # def test_all_pets_by_breed__found
-  #   pets = pets_by_breed(@pet_shop, "British Shorthair")
-  #   assert_equal(2, pets.count)
-  # end
+#Task 8 - passes, but I'm not happy with my solution
+  def test_all_pets_by_breed__found
+    pets = pets_by_breed(@pet_shop, "British Shorthair")
+    assert_equal(2, pets.count)
+  end
 
-#Task 9 - I'VE USED THE SAME IMPLEMENTATION CODE AS FOR TASK 8. SO, THE SAME PROBLEM APPLIES.
-  # def test_all_pets_by_breed__not_found
-  #   pets = pets_by_breed(@pet_shop, "Dalmation")
-  #   assert_equal(0, pets.count)
-  # end
+#Task 9 - passes, but I'm not happy with my solution
+  def test_all_pets_by_breed__not_found
+    pets = pets_by_breed(@pet_shop, "Dalmation")
+    assert_equal(0, pets.count)
+  end
 
-#Task 10 - NOT WORKING. IT HAS TO DO WITH USE OF SQUARE BRACKETS ON LINE 141
+#Task 10 - passes, but I'm not happy with my solution
   def test_find_pet_by_name__returns_pet
     pet = find_pet_by_name(@pet_shop, "Arthur")
     assert_equal("Arthur", pet[:name])
   end
 
-#Task 11 - SAME AS FOR TASK 10, BUT THIS ONE PASSES!!!
+#Task 11 - passes, but I'm not happy with my solution
   def test_find_pet_by_name__returns_nil
     pet = find_pet_by_name(@pet_shop, "Fred")
     assert_nil(pet)
   end
 
 
-#Task 12
+#Task 12 - passes
   def test_remove_pet_by_name
     remove_pet_by_name(@pet_shop, "Arthur")
     pet = find_pet_by_name(@pet_shop,"Arthur")
     assert_nil(pet)
   end
 
-#Task 13
+#Task 13 - passes
   def test_add_pet_to_stock
     add_pet_to_stock(@pet_shop, @new_pet)
     count = stock_count(@pet_shop)
     assert_equal(7, count)
   end
 
-#Task 14 - this passes the test, but it's wrong. REDO
+#Task 14 - passes, but I'm not happy with my solution
   def test_customer_cash
     cash = customer_cash(@customers[0])
     assert_equal(1000, cash)
@@ -181,7 +181,7 @@ class TestPetShop < Minitest::Test
     assert_equal(0, count)
   end
 
-#Task 17 - passes, and works in the implementation
+#Task 17 - passes, but I'm not happy with my solution
   def test_add_pet_to_customer
     customer = @customers[0]
     add_pet_to_customer(customer, @new_pet)
@@ -189,28 +189,28 @@ class TestPetShop < Minitest::Test
   end
 
   # --- OPTIONAL ---
-#Optional task 1
-  # def test_customer_can_afford_pet__sufficient_funds
-  #   customer = @customers[0]
-  #   can_buy_pet = customer_can_afford_pet(customer, @new_pet)
-  #   assert_equal(true, can_buy_pet)
-  # end
+#Optional task 1 - passes
+  def test_customer_can_afford_pet__sufficient_funds
+    customer = @customers[0]
+    can_buy_pet = customer_can_afford_pet(customer, @new_pet)
+    assert_equal(true, can_buy_pet)
+  end
 
-#Optional task 2
-  # def test_customer_can_afford_pet__insufficient_funds
-  #   customer = @customers[1]
-  #   can_buy_pet = customer_can_afford_pet(customer, @new_pet)
-  #   assert_equal(false, can_buy_pet)
-  # end
+#Optional task 2 - passes. Covered in optional task 1
+  def test_customer_can_afford_pet__insufficient_funds
+    customer = @customers[1]
+    can_buy_pet = customer_can_afford_pet(customer, @new_pet)
+    assert_equal(false, can_buy_pet)
+  end
 
-#Optional task 3
-  # def test_customer_can_afford_pet__exact_funds
-  #   customer = @customers[2]
-  #   can_buy_pet = customer_can_afford_pet(customer, @new_pet)
-  #   assert_equal(true, can_buy_pet)
-  # end
+#Optional task 3 - passes. Covered in optional task 1
+  def test_customer_can_afford_pet__exact_funds
+    customer = @customers[2]
+    can_buy_pet = customer_can_afford_pet(customer, @new_pet)
+    assert_equal(true, can_buy_pet)
+  end
 
-#Optional task 4
+#Optional task 4 - I gave this a try, but got in a muddle. It was taking too long so I prioritised getting my PDA up-to-date. I'm keen to see the solutions for this task.
   # These are 'integration' tests so we want multiple asserts.
   # If one fails the entire test should fail
   #

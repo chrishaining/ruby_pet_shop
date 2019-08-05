@@ -79,10 +79,10 @@ class TestPetShop < Minitest::Test
   end
 
 #Task 1 - passes
-  def test_pet_shop_name
-    name = pet_shop_name(@pet_shop)
-    assert_equal("Camelot of Pets", name)
-  end
+  # def test_pet_shop_name
+  #   name = pet_shop_name(@pet_shop)
+  #   assert_equal("Camelot of Pets", name)
+  # end
 
 #Task 2 - passes
   def test_total_cash
@@ -91,163 +91,163 @@ class TestPetShop < Minitest::Test
   end
 
 #Task 3 - passes
-  def test_add_or_remove_cash__add
-    add_or_remove_cash(@pet_shop,10)
-    cash = total_cash(@pet_shop)
-    assert_equal(1010, cash)
-  end
-
-#Task 4 - passes (same implementation code as for task 3)
-  def test_add_or_remove_cash__remove
-    add_or_remove_cash(@pet_shop,-10)
-    cash = total_cash(@pet_shop)
-    assert_equal(990, cash)
-  end
-
-#Task 5 - passes
-  def test_pets_sold
-    sold = pets_sold(@pet_shop)
-    assert_equal(0, sold)
-  end
-
-#Task 6 - passes
-  def test_increase_pets_sold
-    increase_pets_sold(@pet_shop,2)
-    sold = pets_sold(@pet_shop)
-    assert_equal(2, sold)
-  end
-
-#Task 7 - passes
-  def test_stock_count
-    count = stock_count(@pet_shop)
-    assert_equal(6, count)
-  end
-
-#Task 8 - passes, but I'm not happy with my solution
-  def test_all_pets_by_breed__found
-    pets = pets_by_breed(@pet_shop, "British Shorthair")
-    assert_equal(2, pets.count)
-  end
-
-#Task 9 - passes, but I'm not happy with my solution
-  def test_all_pets_by_breed__not_found
-    pets = pets_by_breed(@pet_shop, "Dalmation")
-    assert_equal(0, pets.count)
-  end
-
-#Task 10 - passes, but I'm not happy with my solution
-  def test_find_pet_by_name__returns_pet
-    pet = find_pet_by_name(@pet_shop, "Arthur")
-    assert_equal("Arthur", pet[:name])
-  end
-
-#Task 11 - passes, but I'm not happy with my solution
-  def test_find_pet_by_name__returns_nil
-    pet = find_pet_by_name(@pet_shop, "Fred")
-    assert_nil(pet)
-  end
-
-
-#Task 12 - passes
+#   def test_add_or_remove_cash__add
+#     add_or_remove_cash(@pet_shop,10)
+#     cash = total_cash(@pet_shop)
+#     assert_equal(1010, cash)
+#   end
+#
+# #Task 4 - passes (same implementation code as for task 3)
+#   def test_add_or_remove_cash__remove
+#     add_or_remove_cash(@pet_shop,-10)
+#     cash = total_cash(@pet_shop)
+#     assert_equal(990, cash)
+#   end
+#
+# #Task 5 - passes
+#   def test_pets_sold
+#     sold = pets_sold(@pet_shop)
+#     assert_equal(0, sold)
+#   end
+#
+# #Task 6 - passes
+#   def test_increase_pets_sold
+#     increase_pets_sold(@pet_shop,2)
+#     sold = pets_sold(@pet_shop)
+#     assert_equal(2, sold)
+#   end
+#
+# #Task 7 - passes
+#   def test_stock_count
+#     count = stock_count(@pet_shop)
+#     assert_equal(6, count)
+#   end
+#
+# #Task 8 - passes, but I'm not happy with my solution
+#   def test_all_pets_by_breed__found
+#     pets = pets_by_breed(@pet_shop, "British Shorthair")
+#     assert_equal(2, pets.count)
+#   end
+#
+# #Task 9 - passes, but I'm not happy with my solution
+#   def test_all_pets_by_breed__not_found
+#     pets = pets_by_breed(@pet_shop, "Dalmation")
+#     assert_equal(0, pets.count)
+#   end
+#
+# #Task 10 - passes, but I'm not happy with my solution
+#   def test_find_pet_by_name__returns_pet
+#     pet = find_pet_by_name(@pet_shop, "Arthur")
+#     assert_equal("Arthur", pet[:name])
+#   end
+#
+# #Task 11 - passes, but I'm not happy with my solution
+#   def test_find_pet_by_name__returns_nil
+#     pet = find_pet_by_name(@pet_shop, "Fred")
+#     assert_nil(pet)
+#   end
+#
+#
+# #Task 12 - passes
   def test_remove_pet_by_name
     remove_pet_by_name(@pet_shop, "Arthur")
-    pet = find_pet_by_name(@pet_shop,"Arthur")
-    assert_nil(pet)
+    # pet = find_pet_by_name(@pet_shop,"Arthur")
+    # assert_nil(pet)
   end
-
-#Task 13 - passes
-  def test_add_pet_to_stock
-    add_pet_to_stock(@pet_shop, @new_pet)
-    count = stock_count(@pet_shop)
-    assert_equal(7, count)
-  end
-
-#Task 14 - passes, but I'm not happy with my solution
-  def test_customer_cash
-    cash = customer_cash(@customers[0])
-    assert_equal(1000, cash)
-  end
-
-#Task 15 - passes
-  def test_remove_customer_cash
-    customer = @customers[0]
-    remove_customer_cash(customer, 100)
-    assert_equal(900, customer[:cash])
-  end
-
-#Task 16 - passes
+#
+# #Task 13 - passes
+#   def test_add_pet_to_stock
+#     add_pet_to_stock(@pet_shop, @new_pet)
+#     count = stock_count(@pet_shop)
+#     assert_equal(7, count)
+#   end
+#
+# #Task 14 - passes, but I'm not happy with my solution
+#   def test_customer_cash
+#     cash = customer_cash(@customers[0])
+#     assert_equal(1000, cash)
+#   end
+#
+# #Task 15 - passes
+#   def test_remove_customer_cash
+#     customer = @customers[0]
+#     remove_customer_cash(customer, 100)
+#     assert_equal(900, customer[:cash])
+#   end
+#
+# #Task 16 - passes
   def test_customer_pet_count
     count = customer_pet_count(@customers[0])
     assert_equal(0, count)
   end
-
-#Task 17 - passes, but I'm not happy with my solution
-  def test_add_pet_to_customer
+#
+# #Task 17 - passes, but I'm not happy with my solution
+#   def test_add_pet_to_customer
+#     customer = @customers[0]
+#     add_pet_to_customer(customer, @new_pet)
+#     assert_equal(1, customer_pet_count(customer))
+#   end
+#
+#   # --- OPTIONAL ---
+# #Optional task 1 - passes
+#   def test_customer_can_afford_pet__sufficient_funds
+#     customer = @customers[0]
+#     can_buy_pet = customer_can_afford_pet(customer, @new_pet)
+#     assert_equal(true, can_buy_pet)
+#   end
+#
+# #Optional task 2 - passes. Covered in optional task 1
+#   def test_customer_can_afford_pet__insufficient_funds
+#     customer = @customers[1]
+#     can_buy_pet = customer_can_afford_pet(customer, @new_pet)
+#     assert_equal(false, can_buy_pet)
+#   end
+#
+# #Optional task 3 - passes. Covered in optional task 1
+#   def test_customer_can_afford_pet__exact_funds
+#     customer = @customers[2]
+#     can_buy_pet = customer_can_afford_pet(customer, @new_pet)
+#     assert_equal(true, can_buy_pet)
+#   end
+#
+# #Optional task 4 - I gave this a try, but got in a muddle. It was taking too long so I prioritised getting my PDA up-to-date. I'm keen to see the solutions for this task.
+#   # These are 'integration' tests so we want multiple asserts.
+#   # If one fails the entire test should fail
+#   #
+  def test_sell_pet_to_customer__pet_found
     customer = @customers[0]
-    add_pet_to_customer(customer, @new_pet)
+    pet = find_pet_by_name(@pet_shop,"Arthur")
+
+    sell_pet_to_customer(@pet_shop, pet, customer)
+
     assert_equal(1, customer_pet_count(customer))
+    assert_equal(1, pets_sold(@pet_shop))
+    assert_equal(100, customer_cash(customer))
+    assert_equal(1900, total_cash(@pet_shop))
   end
-
-  # --- OPTIONAL ---
-#Optional task 1 - passes
-  def test_customer_can_afford_pet__sufficient_funds
-    customer = @customers[0]
-    can_buy_pet = customer_can_afford_pet(customer, @new_pet)
-    assert_equal(true, can_buy_pet)
-  end
-
-#Optional task 2 - passes. Covered in optional task 1
-  def test_customer_can_afford_pet__insufficient_funds
-    customer = @customers[1]
-    can_buy_pet = customer_can_afford_pet(customer, @new_pet)
-    assert_equal(false, can_buy_pet)
-  end
-
-#Optional task 3 - passes. Covered in optional task 1
-  def test_customer_can_afford_pet__exact_funds
-    customer = @customers[2]
-    can_buy_pet = customer_can_afford_pet(customer, @new_pet)
-    assert_equal(true, can_buy_pet)
-  end
-
-#Optional task 4 - I gave this a try, but got in a muddle. It was taking too long so I prioritised getting my PDA up-to-date. I'm keen to see the solutions for this task.
-  # These are 'integration' tests so we want multiple asserts.
-  # If one fails the entire test should fail
-  #
-  # def test_sell_pet_to_customer__pet_found
-  #   customer = @customers[0]
-  #   pet = find_pet_by_name(@pet_shop,"Arthur")
-
-  #   sell_pet_to_customer(@pet_shop, pet, customer)
-
-  #   assert_equal(1, customer_pet_count(customer))
-  #   assert_equal(1, pets_sold(@pet_shop))
-  #   assert_equal(100, customer_cash(customer))
-  #   assert_equal(1900, total_cash(@pet_shop))
-  # end
-
-  # def test_sell_pet_to_customer__pet_not_found
-  #   customer = @customers[0]
-  #   pet = find_pet_by_name(@pet_shop,"Dave")
-
-  #   sell_pet_to_customer(@pet_shop, pet, customer)
-
-  #   assert_equal(0, customer_pet_count(customer))
-  #   assert_equal(0, pets_sold(@pet_shop))
-  #   assert_equal(1000, customer_cash(customer))
-  #   assert_equal(1000, total_cash(@pet_shop))
-  # end
-
-  # def test_sell_pet_to_customer__insufficient_funds
-  #   customer = @customers[1]
-  #   pet = find_pet_by_name(@pet_shop,"Arthur")
-
-  #   sell_pet_to_customer(@pet_shop, pet, customer)
-
-  #   assert_equal(0, customer_pet_count(customer))
-  #   assert_equal(0, pets_sold(@pet_shop))
-  #   assert_equal(50, customer_cash(customer))
-  #   assert_equal(1000, total_cash(@pet_shop))
-  # end
+#
+#   # def test_sell_pet_to_customer__pet_not_found
+#   #   customer = @customers[0]
+#   #   pet = find_pet_by_name(@pet_shop,"Dave")
+#
+#   #   sell_pet_to_customer(@pet_shop, pet, customer)
+#
+#   #   assert_equal(0, customer_pet_count(customer))
+#   #   assert_equal(0, pets_sold(@pet_shop))
+#   #   assert_equal(1000, customer_cash(customer))
+#   #   assert_equal(1000, total_cash(@pet_shop))
+#   # end
+#
+#   # def test_sell_pet_to_customer__insufficient_funds
+#   #   customer = @customers[1]
+#   #   pet = find_pet_by_name(@pet_shop,"Arthur")
+#
+#   #   sell_pet_to_customer(@pet_shop, pet, customer)
+#
+#   #   assert_equal(0, customer_pet_count(customer))
+#   #   assert_equal(0, pets_sold(@pet_shop))
+#   #   assert_equal(50, customer_cash(customer))
+#   #   assert_equal(1000, total_cash(@pet_shop))
+#   # end
 
 end
